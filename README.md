@@ -47,8 +47,6 @@ Do not add a Supabase service-role key to a `NEXT_PUBLIC_` variable or commit cr
 
 In Supabase Authentication → URL Configuration, set Site URL to your deployed Vercel URL and add the Vercel URL to Redirect URLs.
 
-In Supabase Authentication → URL Configuration, set Site URL to your deployed Vercel URL and add that URL to Redirect URLs.
-
 ## Privacy notes
 The storage bucket is private. Storage policies limit listing, reading, uploading and deleting to paths beginning with the signed-in user's auth ID. Never commit secrets or expose a service-role key. The site is not ready for real user data until Supabase is configured and the deployed flows are tested.
 
