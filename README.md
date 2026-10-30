@@ -28,7 +28,24 @@ npm run dev
 ```
 
 ## 3. Deploy to Vercel
-Import this GitHub repository at https://vercel.com/new. Add the two environment variables above in Project Settings → Environment Variables, then deploy.
+
+Import this GitHub repository at https://vercel.com/new. Recommended project settings:
+
+- Framework Preset: **Next.js**
+- Root Directory: **./** (repository root)
+- Node.js Version: **22.x** (also pinned in `package.json`)
+- Build Command: leave the detected Next.js default (`npm run build`)
+- Install Command: leave automatic detection enabled
+- Output Directory: leave the detected Next.js default
+
+In Project Settings → Environment Variables, add these two values for **Production, Preview, and Development**:
+
+- `NEXT_PUBLIC_SUPABASE_URL`: your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: your Supabase publishable key or legacy anon key
+
+Do not add a Supabase service-role key to a `NEXT_PUBLIC_` variable or commit credentials to GitHub. Redeploy after changing environment variables.
+
+In Supabase Authentication → URL Configuration, set Site URL to your deployed Vercel URL and add the Vercel URL to Redirect URLs.
 
 In Supabase Authentication → URL Configuration, set Site URL to your deployed Vercel URL and add that URL to Redirect URLs.
 
