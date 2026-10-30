@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent, type ChangeEvent } from "react";
 import { createClient, type SupabaseClient, type User } from "@supabase/supabase-js";
 
 const BUCKET = "learning-files";
@@ -42,7 +42,7 @@ export default function Home() {
 
   useEffect(() => { if (supabase && user) void refreshFiles(supabase, user); }, [supabase, user]);
 
-  async function authenticate(e: React.FormEvent) {
+  async function authenticate(e: FormEvent) {
     e.preventDefault(); if (!supabase) return;
     setBusy(true); setMessage("");
     const result = mode === "signup"
@@ -54,7 +54,7 @@ export default function Home() {
     else setMessage(mode === "signup" ? "Account created." : "Signed in.");
   }
 
-  async function upload(e: React.ChangeEvent<HTMLInputElement>) {
+  async function upload(e: ChangeEvent<HTMLInputElement>) {
     if (!supabase || !user) return;
     const selected = Array.from(e.target.files ?? []);
     if (!selected.length) return;
