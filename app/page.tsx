@@ -7,7 +7,7 @@ const BUCKET = "learning-files";
 const MAX_SIZE = 50 * 1024 * 1024;
 const BLOCKED = /\.(exe|msi|bat|cmd|com|dll|scr|ps1|sh|apk|jar)$/i;
 
-type StoredFile = { name: string; id: string | null; metadata?: { size?: number; mimetype?: string } | null; created_at?: string };
+type StoredFile = { name: string; id: string | null; metadata?: { size?: number; mimetype?: string } | null; created_at?: string | null };
 
 export default function Home() {
   const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
